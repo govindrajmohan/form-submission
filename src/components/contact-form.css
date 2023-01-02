@@ -1,0 +1,50 @@
+:root{
+
+    --primary-black:#333333;
+    --primary-black-hover:#0c0c0c;
+
+    --primary-white:#fff;
+}
+
+.contactPage{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.contactPage h1{
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.form input[type="text"],.form input[type="email"] {
+    outline: none;
+    padding: 10px;
+    /* border: none; */
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form button{
+    font-size: 20px;
+    margin-top: 40px;
+    border: none;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background-color:var(--primary-black);
+    color: #fff;
+    transition: .5s ease-in-out;
+}
+.form button:hover{
+    background-color: var(--primary-black-hover)
+}
+
+.contactPage .form{
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid gray;
+    width: 90vh;
+
+}
