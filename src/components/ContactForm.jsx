@@ -43,34 +43,31 @@ export const ContactForm = () => {
 
     const [dataLoad,setDataLoad] = useState(true);
 
-    // useEffect(() => {
-    //     db.collection("FormData").get().then((querySnapshot) => {
-            
-    //         // Loop through the data and store
-    //         // it in array to display
-    //         querySnapshot.forEach(element => {
-    //             var data = element.data();
-    //             setNewData(arr => [...arr , data]);
-                 
-    //         });
-    //     })
-    // }, [])
+    useEffect(() => {
+        fetchData();
+
+    }, [])
 
     const postData = (e) =>{
         e.preventDefault();
         
-        db.collection("FormData").add({
-            FirstName:user.firstName,
-            LastName:user.lastName,
-            Subject:user.subject,
-            Email:user.email,
-        })
-        .then((docRef) => {
-            console.log("Data Successfully Submitted");
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
+        if(user.firstName && user.lastName && user.subject && user.email){
+            db.collection("FormData").add({
+                FirstName:user.firstName,
+                LastName:user.lastName,
+                Subject:user.subject,
+                Email:user.email,
+            })
+            .then((docRef) => {
+                console.log("Data Successfully Submitted");
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+        }
+        else{
+            alert("please enter All Fields");
+        }
         setUser({
             firstName:"",
             lastName:"",
